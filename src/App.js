@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./pages/RootLayout";
+import RootLayout2 from "./pages/RootLayout2";
+import MainPage from "./pages/MainPage";
+import Catalog from "./pages/Catalog";
+import Product, { productLoader } from "./pages/Product";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />, //елемент, який буде огортати всі сторінки
+    children: [
+      {
+        path: "",
+        element: <RootLayout2 />,
+        children: [
+          {
+            path: "",
+            element: <MainPage />,
+            loader: productLoader
+          },
+          {
+            path: "catalog",
+            element: <Catalog />,
+            loader: productLoader
+          },
+          {
+            path: "product",
+            element: <Product />,
+            loader: productLoader
+          }
+        ]
+      }
+    ]
+  }
+]);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,0 +1,50 @@
+.tabsContainer {
+  width: 80vw;
+  max-width: 1134px;
+  margin: 0 auto;
+  margin-top: 130px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.activeTab {
+  color: #e84a5f;
+  cursor: pointer;
+}
+
+.activeContent {
+  margin-top: 53px;
+  padding: 30px;
+  display: block;
+  column-count: 2;
+  column-gap: 100px;
+  background-color: #cd9d9d;
+  border-radius: 20px;
+  font-size: 18px;
+}
+
+.otherContent {
+  display: none;
+}
+
+.line {
+  height: 0.5px;
+  background-color: #474747;
+  width: 80vw;
+  max-width: 1134px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 13px;
+}
+
+.tabContentHeader {
+  font-weight: bolder;
+  margin-bottom: 20px;
+}

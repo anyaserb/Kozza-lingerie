@@ -1,0 +1,110 @@
+.productCardContainer {
+  width: 80vw;
+  max-width: 1134px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.imageSlider {
+  width: 55%;
+}
+
+.productInformation {
+  width: 45%;
+}
+
+
+.productHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: center;
+}
+
+.productHeader h3 {
+  font-family: "Cormorant";
+  font-size: 35px;
+}
+
+.rating {
+  color: #e84a5f;
+}
+
+.line {
+  height: 0.5px;
+  background-color: #474747;
+}
+
+.description {
+  margin: 25px 0px;
+}
+
+.characteristics {
+  margin: 25px 0px;
+}
+
+.size {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  color: #e84a5f;
+}
+
+.numberBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  color: #e84a5f;
+  margin: 25px 0px;
+}
+
+.number {
+  border: 1px solid #474747;
+  color: black;
+  height: 33px;
+  width: 143px;
+  border-radius: 10px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.number input {
+  max-width: 50px;
+}
+
+.productFooter {
+  margin: 25px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productFooter div {
+  font-size: 30px;
+}
+
+.productFooter button:last-child {
+  width: 55%;
+  height: 53px;
+  background-color: #e84a5f;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.svgLike {
+  width: 33px;
+  height: 31px;
+}

@@ -1,0 +1,39 @@
+.colors {
+  display: flex;
+  flex-direction: row;
+  margin: 25px 0px;
+}
+
+.colors li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 15px 0 0;
+  cursor: pointer;
+}
+
+.colors li.active .checkmark {
+  display: block;
+}
+
+.colors .color {
+  position: relative;
+}
+
+.colors .checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.svgCheckMark {
+  width: 15px;
+  height: 11px;
+}
+
+.svgCheckMarkColor {
+  fill: black;
+  z-index: 0;
+}

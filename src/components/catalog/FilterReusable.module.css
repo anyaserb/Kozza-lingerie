@@ -1,0 +1,92 @@
+.filterHeader {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.filterHeaderMain {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.iconActive {
+  transform: rotate(180deg);
+}
+
+.quantity {
+  color: #a3a3a3;
+  font-size: 12px;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 18px;
+}
+
+.checkboxContainer label {
+  cursor: pointer;
+  display: flex;
+}
+
+.checkboxContainer input {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+
+.checkboxContainer label::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  margin-right: 5px;
+  border: 0.5px solid black;
+  z-index: 1;
+}
+
+.checkboxContainer .active label::before {
+  display: block;
+}
+
+.checkbox {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  display: none;
+  transform: translate(70%, -20%);
+}
+
+.svgCheckMark {
+  width: 7px;
+  height: 5px;
+}
+
+.svgCheckMarkColor {
+  fill: #e84a5f;
+  z-index: 0;
+}
+
+.checkboxContainer .active .checkmark {
+  display: block;
+}
+
+.checkbox {
+  position: relative;
+}
+
+.activeContainer{
+  margin-bottom: 30px;
+}

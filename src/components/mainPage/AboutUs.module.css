@@ -1,0 +1,145 @@
+.aboutText {
+  width: 80vw;
+  margin: 0 auto;
+  max-width: 1134px;
+  padding-top: 87px;
+}
+
+.aboutContainer {
+  max-width: 750px;
+  display: flex;
+  text-align: start;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 30px;
+}
+
+.buttonAboutUs {
+  cursor: pointer;
+  color: #e84a5f;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.buttonAboutUsText {
+  padding-right: 21px;
+  padding-left: 5px;
+}
+
+.aboutText div {
+  font-size: 30px;
+}
+
+.aboutContainer div:first-of-type {
+  padding-left: 26px;
+  align-self: flex-end;
+}
+
+.logo {
+  width: 263px;
+  height: 60px;
+}
+
+.svgArrow {
+  width: 123px;
+  height: 70px;
+}
+
+.svgCircle {
+  stroke: #e84a5f;
+}
+
+.svgPath {
+  fill: #e84a5f;
+}
+
+.buttonAboutUs:hover .buttonAboutUsText {
+  text-shadow: 0 0 10px rgba(232, 74, 95, 0.5);
+}
+
+.buttonAboutUs:active .buttonAboutUsText {
+  color: #c7263b;
+}
+
+.buttonAboutUs:hover .svgCircle {
+  filter: drop-shadow(0 0 5px rgba(232, 74, 95, 0.5));
+}
+
+.buttonAboutUs:active .svgCircle {
+  stroke: #c7263b;
+}
+
+.buttonAboutUs:active .svgPath {
+  fill: #c7263b;
+}
+
+@media screen and (max-width: 1300px) {
+  .aboutText {
+    padding-top: 105px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .aboutText {
+    padding-top: 100px;
+  }
+  .aboutText div {
+    font-size: 23px;
+  }
+  .aboutContainer {
+    row-gap: 10px;
+    max-width: 600px;
+  }
+  .buttonAboutUs {
+    font-size: 23px;
+  }
+  .buttonAboutUsText {
+    padding-right: 10px;
+  }
+  .logo {
+    width: 200px;
+    height: 45px;
+  }
+  .svgArrow {
+    width: 110px;
+    height: 55px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .aboutText {
+    width: 86vw;
+    padding-top: 100px;
+  }
+  .aboutContainer {
+    row-gap: 10px;
+    max-width: 400px;
+  }
+  .aboutContainer div:first-of-type {
+    padding-left: 10px;
+    align-self: center;
+  }
+  .aboutContainer div {
+    font-size: 18px;
+  }
+  .buttonAboutUs {
+    font-size: 18px;
+  }
+  .logo {
+    width: 112px;
+    height: 26px;
+  }
+  .svgArrow {
+    width: 59px;
+    height: 27px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logo {
+    width: 76px;
+    height: 17px;
+  }
+}
