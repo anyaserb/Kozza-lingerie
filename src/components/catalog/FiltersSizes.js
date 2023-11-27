@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./FiltersSizes.module.css";
 
 const FiltersSizes = (props) => {
@@ -14,6 +14,12 @@ const FiltersSizes = (props) => {
     }));
   };
 
+  useEffect(() => {
+    if (Object.keys(checkboxes).length > 0){
+      props.onFilter(checkboxes)
+    }
+  }, [checkboxes]);
+
   return (
     <>
       <div
@@ -22,9 +28,7 @@ const FiltersSizes = (props) => {
       >
         <div className={styles.filterHeaderMain}>
           <h6>{props.header}</h6>
-          <span className={styles.quantity}>
-            {props.measure.length}
-          </span>
+          <span className={styles.quantity}>{props.measure.length}</span>
         </div>
         <FontAwesomeIcon
           icon={faCaretDown}

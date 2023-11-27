@@ -1,5 +1,5 @@
 import styles from "./FilterReusable.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import SvgCheckMark from "../svg/SvgCheckMark";
@@ -9,17 +9,12 @@ const FilterReusable = (props) => {
   const [checkboxes, setCheckboxes] = useState({});
 
   const handleCheckboxChange = (checkboxName) => {
-    setCheckboxes((prevCheckboxes) => {
-      const newCheckboxes = {
-        ...prevCheckboxes,
-        [checkboxName]: !prevCheckboxes[checkboxName]
-      };
-      props.onFilterChange(newCheckboxes);
-      return newCheckboxes;
-    });
+    setCheckboxes((prevCheckboxes) => ({
+      ...prevCheckboxes,
+      [checkboxName]: !prevCheckboxes[checkboxName]
+    }));
   };
 
-  
   return (
     <>
       <div

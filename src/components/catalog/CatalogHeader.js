@@ -3,10 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import { useEffect, useState } from "react";
 import Filters from "./Filters";
-import SvgCardLike from "../svg/SvgCardLike";
-import SvgCardBasket from "../svg/SvgCardBasket";
-import { Link } from "react-router-dom";
 import Footer from "../mainPage/Footer";
+import Products from "./Products";
 
 const sorting = [
   "За рейтингом",
@@ -21,46 +19,42 @@ const CatalogHeader = () => {
   const clothes = useLoaderData();
 
   useEffect(() => {
-    for (let key in clothes) {
-      setClothesArray((prevClothesArray) => [
-        ...prevClothesArray,
-        clothes[key]
-      ]);
-    }
+    setClothesArray(clothes);
   }, [clothes]);
 
+  let clothesQuantity = 0;
+  for (let item in clothes) {
+    ++clothesQuantity;
+  }
+
   let newClothes = [];
-  const handleChange = (checkboxes) => {
+  const filterSizes = (checkboxes) => {
     for (const key in checkboxes) {
       for (const item in clothes) {
-        if (
-          clothes[item].brand === key &&
-          checkboxes[key] &&
-          !newClothes.includes(clothes[item])
-        ) {
-          newClothes.push(clothes[item]);
-        } else if (
-          clothes[item].brand === key &&
-          !checkboxes[key] &&
-          newClothes.includes(clothes[item])
-        ) {
-          const indexToRemove = newClothes.indexOf(clothes[item]);
-          newClothes.splice(indexToRemove, 1);
+        for (const size of clothes[item].sizes) {
+          console.log(newClothes);
+          console.log(clothes[item]);
+          console.log(key);
+          if (size.includes(key) && !newClothes.includes(clothes[item])) {
+            newClothes.push(clothes[item]);
+          }
         }
       }
+
+      console.log(checkboxes)
+      setClothesArray(newClothes);
     }
-    console.log(clothesArray)
-
-    setClothesArray(newClothes);
   };
-
+  // const indexToRemove = newClothes.indexOf(clothes[item]);
+  // newClothes.splice(indexToRemove, 1);
+  // if (size.includes(key) && newClothes.includes(clothes[item])
   return (
     <>
       <div className={styles.catalogContainer}>
         <div className={styles.catalogHeader}>
           <div className={styles.catalogName}>
             <h1>Каталог</h1>
-            <div>({Object.keys(clothes).length} товарів)</div>
+            <div>({clothesQuantity} товарів)</div>
           </div>
           <Dropdown
             selected={selected}
@@ -71,39 +65,11 @@ const CatalogHeader = () => {
         <div className={styles.line}></div>
         <div className={styles.contentFilter}>
           <div className={styles.filterBox}>
-            <Filters onFilterChange={handleChange} />
+            <Filters onFilter={filterSizes} />
           </div>
           <div className={styles.verticalLine}></div>
           <div className={styles.collection}>
-            {clothesArray.map((item, index) => {
-              return (
-                <Link key={index} className={styles.cardCollections}>
-                  <div>
-                    <img src={item.images[0]} alt="" />
-                    <div className={styles.svgLike}>
-                      <SvgCardLike />
-                    </div>
-                    <div className={styles.blackBox}>
-                      <h3>{item.name}</h3>
-                      <ul className={styles.colors}>
-                        {item.colors.map((color, index) => {
-                          return (
-                            <li
-                              key={index}
-                              style={{ backgroundColor: color }}
-                            ></li>
-                          );
-                        })}
-                      </ul>
-                      <div className={styles.price}>{item.price}</div>
-                      <div className={styles.svgCardBasket}>
-                        <SvgCardBasket />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+            <Products clothes={clothesArray} />
           </div>
         </div>
       </div>

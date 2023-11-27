@@ -123,16 +123,19 @@ const Filters = (props) => {
     setFullDisplayedCollection(collectionArray);
   }, [clothes]);
 
+  const filterSizes = (checkbox) => {
+    console.log(checkbox)
+  }
+
   return (
     <div>
       <FilterReusable
         header={"Бренд"}
         displayedClothes={displayedBrand}
         filter={fullDisplayedBrand}
-        onFilterChange={props.onFilterChange}
       />
       <FilterPrice />
-      <FiltersSizes header={"Розмір чашки"} measure={cupSizes} />
+      <FiltersSizes onFilter={props.onFilter} header={"Розмір чашки"} measure={cupSizes} />
       <FiltersSizes header={"Обхват під грудьми"} measure={braSizes} />
       <FiltersSizes header={"Розмір трусиків"} measure={pantiesSizes} />
       <FilterColor header={"Колір"} color={displayedColor} />
